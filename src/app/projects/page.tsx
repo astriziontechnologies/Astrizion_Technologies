@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
+import { Poppins } from 'next/font/google'
 import ProjectsHero from './components/ProjectsHero'
 import ProjectsGrid from './components/ProjectsGrid'
-import CTASection from '@/components/sections/CTASection'
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] })
 
 export const metadata: Metadata = {
   title: 'Our Projects — Astrizion Technologies',
@@ -10,10 +11,9 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <>
+    <div className={poppins.className}>
       <ProjectsHero />
       <ProjectsGrid />
-      <CTASection />
-    </>
+    </div>
   )
 }

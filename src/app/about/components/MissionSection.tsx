@@ -38,15 +38,15 @@ export default function MissionSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="relative p-8 rounded-2xl border border-[#1C4D8D]/25 bg-gradient-to-br from-white/80 to-[#BDE8F5]/80 overflow-hidden group hover:border-[#4988C4]/35 transition-all duration-300"
+                className="relative p-8 rounded-2xl border border-[#0F2854]/15 bg-white overflow-hidden group hover:border-[#0F2854]/35 hover:bg-[#0F2854]/5 transition-all duration-300"
               >
-                <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-[#1C4D8D]/10 rounded-full blur-[60px] group-hover:bg-[#4988C4]/10 transition-all duration-500" />
+                <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-[#0F2854]/5 rounded-full blur-[60px] group-hover:bg-[#0F2854]/8 transition-all duration-500" />
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-[#1C4D8D]/20 border border-[#1C4D8D]/30 flex items-center justify-center mb-5">
-                    <Icon size={22} className="text-[#4988C4]" />
+                  <div className="w-12 h-12 rounded-xl bg-[#0F2854] flex items-center justify-center mb-5">
+                    <Icon size={22} className="text-white" />
                   </div>
                   <h3 className="text-[#0F2854] font-bold text-xl mb-3">{pillar.title}</h3>
-                  <p className="text-[#0F2854]/45 leading-relaxed">{pillar.description}</p>
+                  <p className="text-[#0F2854]/70 leading-relaxed">{pillar.description}</p>
                 </div>
               </motion.div>
             )
@@ -62,15 +62,15 @@ export default function MissionSection() {
           className="mt-20 grid lg:grid-cols-2 gap-12 items-center"
         >
           <div>
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#1C4D8D]/50 bg-[#1C4D8D]/10 text-[#4988C4] text-xs font-medium tracking-widest uppercase mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#4988C4] pulse-dot" />
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0F2854]/30 bg-[#0F2854]/8 text-[#0F2854] text-xs font-medium tracking-widest uppercase mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0F2854] pulse-dot" />
               Our Story
             </span>
             <h2 className="text-[clamp(1.625rem,4vw,2.5rem)] font-bold text-[#0F2854] mb-5 leading-tight">
               Built with Purpose,<br />
               <span className="gradient-text">Driven by Impact</span>
             </h2>
-            <div className="space-y-4 text-[#0F2854]/45 leading-relaxed">
+            <div className="space-y-4 text-[#0F2854]/70 leading-relaxed">
               <p>
                 Astrizion Technologies was founded with a simple belief — great technology should be accessible to every business, regardless of size. We saw a gap between what businesses needed and what they were getting from traditional IT vendors.
               </p>
@@ -97,11 +97,11 @@ export default function MissionSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                className="p-6 rounded-xl border border-[#1C4D8D]/25 bg-white/60 hover:border-[#4988C4]/35 transition-colors group"
+                className="p-6 rounded-xl border border-[#0F2854]/15 bg-white hover:border-[#0F2854]/35 transition-colors group"
               >
-                <div className="text-3xl font-bold gradient-text mb-1">{stat.value}</div>
-                <div className="text-[#0F2854] font-medium text-sm mb-1">{stat.label}</div>
-                <div className="text-[#0F2854]/30 text-xs">{stat.desc}</div>
+                <div className="text-4xl font-bold gradient-text mb-1">{stat.value}</div>
+                <div className="text-[#0F2854] font-medium text-base mb-1">{stat.label}</div>
+                <div className="text-[#0F2854]/50 text-sm">{stat.desc}</div>
               </motion.div>
             ))}
           </div>

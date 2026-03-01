@@ -74,95 +74,10 @@ const projects = [
 ]
 
 export default function ProjectsGrid() {
-  const [activeCategory, setActiveCategory] = useState('All')
-
-  const filtered = activeCategory === 'All'
-    ? projects
-    : projects.filter((p) => p.category === activeCategory)
-
   return (
     <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Filter tabs */}
-        <div className="flex flex-wrap gap-2 justify-center mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                activeCategory === cat
-                  ? 'bg-[#1C4D8D] text-white border border-[#4988C4]/50'
-                  : 'border border-[#1C4D8D]/30 text-[#0F2854]/50 hover:text-[#0F2854] hover:border-[#1C4D8D]/60'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project, i) => (
-              <motion.div
-                key={project.title}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3, delay: i * 0.06 }}
-                className="group relative rounded-2xl border border-[#1C4D8D]/20 bg-white/70 overflow-hidden hover:border-[#4988C4]/40 transition-all duration-300 hover:-translate-y-1"
-              >
-                {/* Top gradient visual */}
-                <div className={`h-32 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                  <div className="absolute inset-0 grid-bg opacity-30" />
-                  {/* Category badge */}
-                  <span
-                    className="absolute top-3 right-3 px-2 py-1 rounded-md text-[10px] font-semibold tracking-wider uppercase"
-                    style={{
-                      background: `${project.accentColor}20`,
-                      border: `1px solid ${project.accentColor}40`,
-                      color: project.accentColor,
-                    }}
-                  >
-                    {project.category}
-                  </span>
-                </div>
-
-                <div className="p-5">
-                  <h3 className="text-[#0F2854] font-semibold text-base mb-2">{project.title}</h3>
-                  <p className="text-[#0F2854]/40 text-sm leading-relaxed mb-4">{project.description}</p>
-
-                  {/* Tech tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="px-2 py-0.5 rounded text-[10px] bg-[#1C4D8D]/20 border border-[#1C4D8D]/30 text-[#0F2854]/50"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Links */}
-                  <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button className="flex items-center gap-1.5 text-xs text-[#4988C4] hover:text-[#1C4D8D] transition-colors">
-                      <ExternalLink size={13} /> View Project
-                    </button>
-                    <button className="flex items-center gap-1.5 text-xs text-[#0F2854]/35 hover:text-[#0F2854]/70 transition-colors">
-                      <Github size={13} /> Code
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {filtered.length === 0 && (
-          <p className="text-center text-[#0F2854]/30 py-20">No projects in this category yet.</p>
-        )}
+        <h2 className="text-center text-[#0F2854] font-bold py-20 text-lg">We're Building Something Great — Stay Tuned!</h2>
       </div>
     </section>
   )

@@ -25,7 +25,7 @@ export default function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.2 }}
           aria-label="Scroll to top"
-          className="fixed bottom-24 right-4 sm:bottom-8 sm:right-6 lg:right-8 z-40
+          className="fixed bottom-20 right-4 sm:bottom-5 sm:right-6 lg:right-8 z-40
                      w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11
                      rounded-full bg-[#1C4D8D] text-white shadow-lg
                      flex items-center justify-center

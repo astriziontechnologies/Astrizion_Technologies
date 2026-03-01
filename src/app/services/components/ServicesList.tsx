@@ -19,7 +19,6 @@ const services = [
       'CMS integration (Sanity, Contentful)',
       'Performance optimization & SEO',
     ],
-    color: '#4988C4',
   },
   {
     id: 'mobile',
@@ -36,7 +35,6 @@ const services = [
       'Third-party API integrations',
       'App maintenance & updates',
     ],
-    color: '#1C4D8D',
   },
   {
     id: 'ai-ml',
@@ -53,7 +51,6 @@ const services = [
       'LLM integration (GPT, Claude, etc.)',
       'AI-powered chatbots & agents',
     ],
-    color: '#4988C4',
   },
   {
     id: 'automation',
@@ -70,7 +67,6 @@ const services = [
       'CRM, ERP & tool integrations',
       'Email, Slack & notification automation',
     ],
-    color: '#1C4D8D',
   },
   {
     id: 'consulting',
@@ -87,7 +83,6 @@ const services = [
       'Architecture review & optimization',
       'Team training & upskilling',
     ],
-    color: '#4988C4',
   },
   {
     id: 'marketing',
@@ -104,7 +99,6 @@ const services = [
       'Conversion rate optimization (CRO)',
       'Analytics & performance reporting',
     ],
-    color: '#1C4D8D',
   },
   {
     id: 'scraping',
@@ -121,65 +115,78 @@ const services = [
       'Scheduled & real-time scraping',
       'Proxy management & anti-bot bypass',
     ],
-    color: '#4988C4',
   },
 ]
 
 export default function ServicesList() {
   return (
     <section className="py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {services.map((service, i) => {
           const Icon = service.icon
           const isEven = i % 2 === 0
+
           return (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.7 }}
-              className={`flex flex-col lg:flex-row gap-10 items-start ${!isEven ? 'lg:flex-row-reverse' : ''}`}
+              className="relative"
             >
-              {/* Icon + number */}
-              <div className="shrink-0">
-                <div
-                  className="w-20 h-20 rounded-2xl flex items-center justify-center border"
-                  style={{
-                    background: `${service.color}15`,
-                    borderColor: `${service.color}35`,
-                  }}
-                >
-                  <Icon size={32} style={{ color: service.color }} />
-                </div>
-              </div>
+              {/* Divider — skip before first */}
+              {i !== 0 && (
+                <div className="w-full h-px bg-gradient-to-r from-transparent via-[#0F2854]/15 to-transparent my-16" />
+              )}
 
-              {/* Content */}
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <span
-                    className="text-xs font-bold tracking-widest uppercase"
-                    style={{ color: service.color }}
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="h-px flex-1 max-w-[40px]" style={{ background: `${service.color}40` }} />
-                  <span className="text-[#0F2854]/30 text-xs">{service.tagline}</span>
-                </div>
-                <h3 className="text-[clamp(1.375rem,3.5vw,1.875rem)] font-bold text-[#0F2854] mb-4">{service.title}</h3>
-                <p className="text-[#0F2854]/45 leading-relaxed mb-6 max-w-xl">{service.description}</p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {service.features.map((feature) => (
-                    <div key={feature} className="flex items-center gap-2.5 text-sm text-[#0F2854]/55">
-                      <span
-                        className="w-1.5 h-1.5 rounded-full shrink-0"
-                        style={{ background: service.color }}
-                      />
-                      {feature}
+                {/* ── Content column ── */}
+                <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
+                  {/* Number + tagline */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-sm font-bold tracking-widest uppercase text-[#0F2854]">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="h-px w-8 bg-[#0F2854]/40" />
+                    <span className="text-[#0F2854]/50 text-sm">{service.tagline}</span>
+                  </div>
+
+                  {/* Icon + title */}
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center bg-[#0F2854]">
+                      <Icon size={24} className="text-white" />
                     </div>
-                  ))}
+                    <h3 className="text-[clamp(1.5rem,3.5vw,2rem)] font-bold text-[#0F2854]">
+                      {service.title}
+                    </h3>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-[#0F2854]/70 text-base leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
+
+                {/* ── Features column ── */}
+                <div className={isEven ? 'lg:order-2' : 'lg:order-1'}>
+                  <div className="bg-[#0F2854]/[0.04] border border-[#0F2854]/10 rounded-2xl p-6 sm:p-8">
+                    <ul className="space-y-3">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-3 text-[#0F2854]">
+                          <span className="shrink-0 w-5 h-5 rounded-full bg-[#0F2854] flex items-center justify-center">
+                            <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                              <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
+                          <span className="text-base">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
               </div>
             </motion.div>
           )

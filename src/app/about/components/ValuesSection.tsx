@@ -14,7 +14,7 @@ const values = [
 
 export default function ValuesSection() {
   return (
-    <section className="py-24 bg-[#95C9E0]/30">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -23,8 +23,8 @@ export default function ValuesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#1C4D8D]/50 bg-[#1C4D8D]/10 text-[#4988C4] text-xs font-medium tracking-widest uppercase mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#4988C4] pulse-dot" />
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0F2854]/30 bg-[#0F2854]/8 text-[#0F2854] text-xs font-medium tracking-widest uppercase mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0F2854] pulse-dot" />
             Core Values
           </span>
           <h2 className="text-[clamp(1.875rem,5vw,3.125rem)] font-bold text-[#0F2854] mb-4">
@@ -42,14 +42,14 @@ export default function ValuesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex gap-4 p-6 rounded-2xl border border-[#1C4D8D]/20 bg-white/50 hover:border-[#4988C4]/35 transition-colors group"
+                className="flex gap-4 p-6 rounded-2xl border border-[#0F2854]/15 bg-white hover:border-[#0F2854]/35 hover:bg-[#0F2854]/5 transition-colors group"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#1C4D8D]/20 border border-[#1C4D8D]/30 flex items-center justify-center shrink-0 group-hover:bg-[#1C4D8D]/40 transition-colors">
-                  <Icon size={18} className="text-[#4988C4]" />
+                <div className="w-10 h-10 rounded-xl bg-[#0F2854] flex items-center justify-center shrink-0 transition-colors">
+                  <Icon size={18} className="text-white" />
                 </div>
                 <div>
-                  <h4 className="text-[#0F2854] font-semibold mb-1.5">{value.title}</h4>
-                  <p className="text-[#0F2854]/40 text-sm leading-relaxed">{value.description}</p>
+                  <h4 className="text-[#0F2854] font-semibold text-base mb-1.5">{value.title}</h4>
+                  <p className="text-[#0F2854]/70 text-base leading-relaxed">{value.description}</p>
                 </div>
               </motion.div>
             )

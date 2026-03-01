@@ -45,12 +45,13 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled || menuOpen
-            ? 'bg-[#BDE8F5]/90 backdrop-blur-xl border-b border-[#1C4D8D]/30'
+            ? 'backdrop-blur-xl border-b border-[#0F2854]/15'
             : 'bg-transparent'
         }`}
+        style={scrolled || menuOpen ? { backgroundColor: 'lab(89.2555 -12.3059 -11.1776 / 0.9)' } : {}}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center lg:justify-between h-16 sm:h-18">
+          <div className="flex items-center justify-center lg:justify-between h-18 sm:h-20">
 
             {/* Logo */}
             <Link href="/" className="flex items-center group shrink-0">
@@ -70,7 +71,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 group ${
+                  className={`relative px-4 py-2 text-base font-medium transition-colors duration-200 group ${
                     pathname === link.href ? 'text-[#0F2854]' : 'text-[#0F2854]/70 hover:text-[#0F2854]'
                   }`}
                 >
@@ -91,7 +92,7 @@ export default function Navbar() {
               {/* Desktop CTA */}
               <Link
                 href="/contact"
-                className="hidden lg:inline-flex items-center px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-[#0F2854] to-[#1C4D8D] rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-[#1C4D8D]/30"
+                className="hidden lg:inline-flex items-center px-5 py-2 text-sm font-semibold text-white bg-[#0F2854] rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-[#0F2854]/30"
               >
                 Get in Touch
               </Link>
@@ -143,7 +144,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 lg:hidden bg-[#BDE8F5]/98 backdrop-blur-xl pt-16 sm:pt-18"
+            className="fixed inset-0 z-40 lg:hidden bg-white backdrop-blur-xl pt-18 sm:pt-20"
           >
             <nav className="flex flex-col items-center justify-center gap-6 h-full pb-24">
               {navLinks.map((link, i) => (
@@ -171,7 +172,7 @@ export default function Navbar() {
               >
                 <Link
                   href="/contact"
-                  className="px-8 py-3 text-base font-semibold text-white bg-gradient-to-r from-[#0F2854] to-[#1C4D8D] rounded-xl"
+                  className="px-8 py-3 text-base font-semibold text-white bg-[#0F2854] rounded-xl"
                 >
                   Get in Touch
                 </Link>

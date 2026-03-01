@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
         <Navbar />
-        <main className="pt-16 sm:pt-18 pb-20 lg:pb-0">{children}</main>
+        <main className="pt-18 sm:pt-20 pb-20 lg:pb-0">{children}</main>
         <Footer />
         <ScrollToTop />
         <BottomNavbar />
