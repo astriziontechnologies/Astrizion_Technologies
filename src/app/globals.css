@@ -1,26 +1,120 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-navy: #0F2854;
+  --color-blue: #1C4D8D;
+  --color-sky: #4988C4;
+  --color-light: #BDE8F5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #BDE8F5;
+  --foreground: #0F2854;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  min-width: 0; /* prevents flex children from overflowing */
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%; /* prevent font scaling on orientation change */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, sans-serif;
+  overflow-x: hidden;
+  /* Fluid base font size: scales from 15px at 320px to 16px at 1280px+ */
+  font-size: clamp(0.9375rem, 0.9vw + 0.7rem, 1rem);
+  line-height: 1.6;
+}
+
+/* Responsive images & media */
+img,
+video,
+iframe,
+embed,
+object {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent table overflow */
+table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #BDE8F5; }
+::-webkit-scrollbar-thumb { background: #1C4D8D; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #4988C4; }
+
+/* Selection */
+::selection { background: #1C4D8D; color: #BDE8F5; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #0F2854, #1C4D8D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Grid pattern background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(28, 77, 141, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 77, 141, 0.12) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+.float { animation: float 6s ease-in-out infinite; }
+
+/* Pulse dot */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+.pulse-dot { animation: pulseDot 2s ease-in-out infinite; }
+
+/* Slide up reveal */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Glow box shadow */
+.glow { box-shadow: 0 0 40px rgba(73, 136, 196, 0.15); }
+
+/* Border glow animation */
+@keyframes borderPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(73, 136, 196, 0); }
+  50% { box-shadow: 0 0 20px 2px rgba(73, 136, 196, 0.25); }
+}
+.border-pulse { animation: borderPulse 3s ease-in-out infinite; }
+
+/* Ensure long words/URLs don't break layouts */
+p, li, span, label {
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
