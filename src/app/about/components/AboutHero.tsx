@@ -30,8 +30,8 @@ export default function AboutHero() {
         </motion.span>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-[clamp(2rem,6vw,3.75rem)] font-bold text-[#0F2854] mb-6 leading-tight"
         >
