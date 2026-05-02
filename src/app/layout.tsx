@@ -1,10 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Poppins } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
-import { BottomNavbar } from '@/components/BottomNav'
-import ScrollToTop from '@/components/ui/ScrollToTop'
+import ShellWrapper from '@/components/ShellWrapper'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
@@ -118,11 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
-        <Navbar />
-        <main className="pt-18 sm:pt-20 pb-20 lg:pb-0">{children}</main>
-        <Footer />
-        <ScrollToTop />
-        <BottomNavbar />
+        <ShellWrapper>{children}</ShellWrapper>
       </body>
     </html>
   )
